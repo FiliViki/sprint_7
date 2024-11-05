@@ -1,6 +1,5 @@
 import helpers.CourierApi;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
@@ -12,15 +11,11 @@ import static org.hamcrest.Matchers.notNullValue;
 
 
 @DisplayName("Логин курьера")
-public class LoginCourierTest {
+public class LoginCourierTest extends BaseTest {
     private final String login = "Andrey123";
     private final String password = "qwerty123";
 
     CourierApi api = new CourierApi();
-
-    public LoginCourierTest() {
-        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
-    }
 
     @Before()
     public void setUp() {

@@ -1,7 +1,6 @@
 import helpers.OrderApi;
 import helpers.OrderTestData;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,12 +12,11 @@ import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(Parameterized.class)
-public class CreateOrderTest {
+public class CreateOrderTest extends BaseTest {
     private final OrderApi api = new OrderApi();
     private final OrderTestData orderData;
 
     public CreateOrderTest(List<String> color) {
-        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
         this.orderData = new OrderTestData(color);
     }
 

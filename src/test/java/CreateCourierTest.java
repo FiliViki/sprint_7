@@ -1,6 +1,5 @@
 import helpers.CourierApi;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.equalTo;
 import org.junit.After;
@@ -9,15 +8,11 @@ import org.junit.Test;
 import static org.apache.http.HttpStatus.*;
 
 @DisplayName("Создание нового курьера")
-public class CreateCourierTest {
+public class CreateCourierTest extends BaseTest {
     private final String login = "Andrey123";
     private final String password = "qwerty123";
 
     CourierApi api = new CourierApi();
-
-    public CreateCourierTest() {
-        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
-    }
 
     @Test()
     @DisplayName("Курьер должен быть создан")
